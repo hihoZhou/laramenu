@@ -1,13 +1,13 @@
 <?php
-namespace hihozhou\Laramenu;
+namespace HihoZhou\Laramenu;
 use Illuminate\Support\ServiceProvider;
 
 /**
  * LaramenuServiceProvider.php.
  *
  *
- * @author    hihozhou <hihozhou.github.io>
- * @email     hihozhou@gmail.com
+ * @author    HihoZhou <HihoZhou.github.io>
+ * @email     HihoZhou@gmail.com
  * Time: 16-11-14 下午2:16
  */
 class LaramenuServiceProvider extends ServiceProvider
@@ -15,6 +15,10 @@ class LaramenuServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        // Publish config files
+        $this->publishes([
+            __DIR__.'/../config/contact.php' => config_path('laramenu.php'),
+        ]);
 
         // Publish database migration
         $this->publishes([
