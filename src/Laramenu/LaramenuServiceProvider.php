@@ -15,7 +15,11 @@ class LaramenuServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        
+
+        // Publish database migration
+        $this->publishes([
+            __DIR__.'/../database/migrations/create_menus_table.php' => database_path('migrations/'.date('Y_m_d_His').'_create_menus_table.php'),
+        ], 'migrations');
     }
 
     /**
